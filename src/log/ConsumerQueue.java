@@ -18,7 +18,7 @@ public class ConsumerQueue {
         connection.start();
 
         // --- It needs to be true to works in transaction way
-        Session session = connection.createSession(true, Session.SESSION_TRANSACTED);
+        Session session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
         /*
         ------ It works with client confirmation
         Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);

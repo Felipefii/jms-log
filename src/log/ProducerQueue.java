@@ -22,7 +22,10 @@ public class ProducerQueue {
 
 
         Message message = session.createTextMessage("<pessoa><id>12</id></pessoa>");
-        producer.send(message);
+        //producer.send(message, Delivery mode, priority, time to live)
+        //To confirm the priority we have to change the ActiveMQ configuration
+        // with <policyEntry queue=">" prioritizedMessages="true"/>
+        producer.send(message, DeliveryMode.NON_PERSISTENT, 3, 5000);
 
 
         session.close();
